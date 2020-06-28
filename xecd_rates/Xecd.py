@@ -79,6 +79,14 @@ class Xecd(object):
                                      "XOF": "CFA Franc", "XPD": "Palladium Ounce", "XPF": "CFP Franc",
                                      "XPT": "Platinum Ounce", "YER": "Yemeni Rial", "ZAR": "South African Rand"}
 
+    def _check_currency(self,ccode):
+        if ccode not in self.available_currencies.keys():
+            raise Exception('invalid currencies')
+
+    def _check_date(self,cdate):
+        if cdate not in self.available_currencies.keys():
+            raise Exception('invalid currencies')
+
     def _get_html(self, cfrom, cdate):
         params = self.params
         params['from'] = cfrom
@@ -123,6 +131,7 @@ class Xecd(object):
             yield day
 
     def convert_from(self, cfrom, cto):
+        self._check_currency(cfrom)
         html = self._get_html(cfrom, cdate='')
         results = self._parse_html(html)
         results = self._filter_results(results=results, flt=cto)

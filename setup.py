@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='xecd_rates',
-    version='1.0.1',
+    version='1.0.3',
     url='https://github.com/doguskidik/xecd-rates-python',
     packages=setuptools.find_packages(exclude=['tests*']),
     description='Xecd Rates Python: Free currency  rates converter',

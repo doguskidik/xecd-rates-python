@@ -100,9 +100,9 @@ class Xecd(object):
         currency_rates = [currency_rates[i:i + 4] for i in range(0, len(currency_rates), 4)]
 
         results = dict()
-        results['timestamp'] = timestamp
-        results['from'] = _from
-        results['to'] = [{'quotecurrency': val[0], 'mid': val[2]} for val in currency_rates]
+        results['timestamp'] = str(timestamp)
+        results['from'] = str(_from)
+        results['to'] = [{'quotecurrency': str(val[0]), 'mid': float(val[2])} for val in currency_rates]
 
         return results
 
